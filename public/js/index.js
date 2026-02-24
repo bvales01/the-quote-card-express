@@ -5,7 +5,24 @@ const elements = {
     author: document.getElementById("author"),
 };
 
-const quotes =[
+async function getRandomImage() {
+    const client_id = "2is7uxs8XFqToldYPxLcBanl_ewXxTCTGt7BbwPJOSM";
+    const endpoint = `https://api.unsplash.com/photos/random/?client_id=${client_id}`;
+    try {
+        const response = await fetch(endpoint);
+        const returnedData = await response.json()
+        const receivedPhotoUrl = returnedData.urls.regular;
+
+        const imgDiv = document.querySelector(".background-img");
+        imgDiv.style.backgroundImage = `url(${receivedPhotoUrl})`;
+    } catch (error) {
+        console.error(error)
+    }
+};
+
+getRandomImage();
+
+/* const quotes = [
     {
         quote: "All hands! Abandon ship!",
         author: "Captain Picard",
@@ -20,7 +37,7 @@ const quotes =[
         quote: "The Internet is the first thing that humanity has built that humanity doesn't understand, the largest experiment in anarchy that we have ever had.",
         author: "Eric Schmidt",
     }
-];
+]
 
 function loopThroughQuotes() {
     let quoteIndex = 0;
@@ -31,8 +48,8 @@ function loopThroughQuotes() {
             quoteIndex++;
         } else {
             quoteIndex = 0;
-        }   
+        }
     }, 3000);
-};
+}
 
-setTimeout(loopThroughQuotes, 3000);
+setTimeout(loopThroughQuotes, 3000); */
