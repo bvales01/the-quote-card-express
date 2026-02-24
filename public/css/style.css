@@ -15,7 +15,7 @@ body {
 }
 
 .background-img {
-    background-image: url('../../img/quotecardimage.jpeg');
+    background-image: url('/img/quotecardimage.jpeg');
     background-size: cover;
     position: fixed;
     top: 0;
